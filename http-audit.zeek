@@ -5,7 +5,7 @@ global local_sites: set[string] = {
 
 function is_local_site(rec: HTTP::Info): bool
     {
-    return rec$host in local_sites;
+    return ( rec?$host && rec$host in local_sites );
     }
 
 event zeek_init()
